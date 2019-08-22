@@ -1,6 +1,8 @@
 import React from "react";
 import axios from "axios";
 import MovieCard from "./MovieCard";
+
+
 export default class Movie extends React.Component {
   constructor(props) {
     super(props);
@@ -9,12 +11,16 @@ export default class Movie extends React.Component {
     };
   }
 
+//grabbing movies by id
+  movieId = this.props.match.params.id
+  
+
   componentDidMount() {
-    this.fetchMovie(this.props.match.params.id);
+    this.fetchMovie(this.movieId);
   }
 
   componentWillReceiveProps(newProps) {
-    if (this.props.match.params.id !== newProps.match.params.id) {
+    if (this.movieId !== newProps.match.params.id) {
       this.fetchMovie(newProps.match.params.id);
     }
   }
@@ -35,7 +41,7 @@ export default class Movie extends React.Component {
     if (!this.state.movie) {
       return <div>Loading movie information...</div>;
     }
-
+    console.log(this.movieId)
     return (
       <div className="save-wrapper">
         <MovieCard movie={this.state.movie} />
