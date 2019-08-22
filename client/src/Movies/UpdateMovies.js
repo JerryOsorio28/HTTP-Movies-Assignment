@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button,  Form } from 'semantic-ui-react';
+import axios from 'axios';
 
 //Semantic UI styles
 import 'semantic-ui-css/semantic.min.css';
 
-const UpdateMovies = () => {
+const UpdateMovies = (props) => {
+    const id = props.match.params.id;
+    // const movieInArray = props.items.find()
+    const [updatedMovie, setUpdatedMovie] = useState();
+    console.log(props)
+
     return (
         <Form>
             <h1>Update Movie</h1>

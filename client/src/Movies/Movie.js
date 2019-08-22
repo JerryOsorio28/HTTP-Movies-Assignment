@@ -41,7 +41,7 @@ export default class Movie extends React.Component {
     if (!this.state.movie) {
       return <div>Loading movie information...</div>;
     }
-    console.log(this.movieId)
+
     return (
       <div className="save-wrapper">
         <MovieCard movie={this.state.movie} />
