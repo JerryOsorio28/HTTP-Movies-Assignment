@@ -25,7 +25,6 @@ const App = () => {
       .catch(err => console.log(err.response));
   }, [])
 
-
   return (
     <>
       <SavedList list={savedList} />
@@ -37,12 +36,13 @@ const App = () => {
       <Route
         path="/movies/:id"
         render={props => {
-          return <Movie {...props} addToSavedList={addToSavedList} />;
+          return <Movie {...props} addToSavedList={addToSavedList} setMovieList={setMovieList} movieList={movieList}/>;
         }}
       />
         <Route 
         path="/update-movie/:id" 
-        render={props => <UpdateMovies {...props} movieList={movieList}/>}
+        render={props => <UpdateMovies {...props} movieList={movieList}
+        setMovieList={setMovieList}/>}
          />
     </>
   );

@@ -61,16 +61,21 @@ body {
   margin: 1rem auto;
 }
 .save-button {
+  display: flex;
+  flex-wrap: wrap;
   position: absolute;
   top: 25px;
   right: 25px;
-  border: 1px solid grey;
+  margin: 2rem 0;
+  color: white;
   padding: 5px 10px;
-  background-color: lightseagreen;
+  background-color: #3498db;
+  width: 5rem;
+  justify-content: center;
 }
 .save-button:hover {
-  background-color: green;
-  color: white;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px black;
 }
 
 .home-button {
@@ -81,4 +86,41 @@ body {
 .movie-warning {
   color: red;
   text-align: center;
+}
+
+#updateButton{
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  margin: 2rem 12rem 0 0;
+  top: 25px;
+  right: 25px;
+  color: white;
+  padding: 5px 10px;
+  background-color: green;
+  width: 5rem;
+  justify-content: center;
+}
+#updateButton:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 2px black;
+}
+
+#deleteButton{
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  margin: 2rem 6rem 0 0;
+  top: 25px;
+  right: 25px;
+  color: white;
+  padding: 5px 10px;
+  background-color: darkred;
+  width: 5rem;
+  justify-content: center;
+  
+}
+#deleteButton:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 2px black;
 }

@@ -4,7 +4,7 @@ import MovieCard from "./MovieCard";
 
 const MovieList = movieList => {
   
-    // console.log(movieList)
+    console.log('MovieList', movieList)
     return (
       <div className="movie-list">
         {movieList.movieList.map(movie => (

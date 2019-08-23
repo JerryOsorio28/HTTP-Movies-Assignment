@@ -5,23 +5,26 @@ import axios from 'axios';
 //Semantic UI styles
 import 'semantic-ui-css/semantic.min.css';
 
+const initialMovie = {
+    id: '',
+    title: '',
+    director: '',
+    metascore: '',
+    stars: []
+}
+
 const UpdateMovies = (movieList) => {
 
     const movies = movieList.movieList;
 
-    const [updatedMovie, setUpdatedMovie] = useState({
-        id: '',
-        title: '',
-        director: '',
-        metascore: '',
-        stars: []
-    });
+    const [updatedMovie, setUpdatedMovie] = useState(initialMovie);
 
-    console.log(updatedMovie)
+    console.log('updatedMovie', movieList)
 
     useEffect(() => {
 
         const id = movieList.match.params.id;
+        console.log('useEffect',movies)
 
         const movieInArray = movies.find( movie => `${movie.id}` === id);
 
@@ -33,10 +36,14 @@ const UpdateMovies = (movieList) => {
     // console.log(movies)
 
     const handleSubmit = e => {
-        e.preventDefault()
-        axios.put(`http://localhost:5000/api/movies/update-movie/${updatedMovie.id}`, updatedMovie )
-        .then( res => console.log( res))
-        .catch(err => console.log(err.response))
+        e.preventDefault();
+        axios
+            .put(`http://localhost:5000/api/movies/${updatedMovie.id}`, updatedMovie )
+            .then( res => {
+                movieList.setMovieList(movieList.match.params.id)
+                movieList.history.push('/')
+            })
+            .catch(err => console.log(err.response))
     }
 
     const changeHandler = e => {
