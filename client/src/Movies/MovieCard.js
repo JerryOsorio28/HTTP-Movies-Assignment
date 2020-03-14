@@ -1,10 +1,17 @@
 import React from 'react';
+import axios from 'axios';
 
 const MovieCard = props => {
   const { title, director, metascore, stars } = props.movie;
+  
+  // console.log('movieCard', props.movie)
+
+  
   return (
     <div className="movie-card">
+      <div className='movieHeader'>
       <h2>{title}</h2>
+      </div>
       <div className="movie-director">
         Director: <em>{director}</em>
       </div>
@@ -12,7 +19,6 @@ const MovieCard = props => {
         Metascore: <strong>{metascore}</strong>
       </div>
       <h3>Actors</h3>
-
       {stars.map(star => (
         <div key={star} className="movie-star">
           {star}
